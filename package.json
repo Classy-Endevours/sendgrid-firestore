@@ -2,15 +2,18 @@
   "name": "firestore-sendgrid",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "controller/user.js",
   "scripts": {
     "start": "node ./bin/www",
+    "save-user": "npx functions-framework --target=save",
+    "list-user": "npx functions-framework --target=get",
     "dev": "nodemon ./bin/www"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/functions-framework": "^1.9.0",
     "@sendgrid/mail": "^7.4.6",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",

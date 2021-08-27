@@ -1,5 +1,7 @@
 const User = require('../model/user');
+require("dotenv").config();
 const { registrationMail, pageVisitMail } = require('../util/mail/mailer');
+global.__logger = require("../config/logger");
 
 const get = async (req, res, next) => {
     try {
@@ -12,7 +14,9 @@ const get = async (req, res, next) => {
         })
     } catch (error) {
         __logger.error(`error:: ${error}`)
-        next(error, req, res, next);
+        res.status(500).send({
+            error: error.message,
+        })
     }
 }
 const save = async (req, res, next) => {
@@ -27,9 +31,13 @@ const save = async (req, res, next) => {
         })
     } catch (error) {
         __logger.error(`error:: ${error}`)
-        next(error, req, res, next);
+        res.status(500).send({
+            error: error.message,
+        })
     }
 }
+exports.get = get
+exports.save = save
 module.exports = {
     get,
     save
