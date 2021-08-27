@@ -2,9 +2,10 @@
   "name": "firestore-sendgrid",
   "version": "1.0.0",
   "description": "",
-  "main": "controller/user.js",
+  "main": "handler.js",
   "scripts": {
     "start": "node ./bin/www",
+    "function": "npx functions-framework --target=handler",
     "save-user": "npx functions-framework --target=save",
     "list-user": "npx functions-framework --target=get",
     "dev": "nodemon ./bin/www"
